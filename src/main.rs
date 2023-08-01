@@ -23,7 +23,7 @@ pub fn users() -> Response {
 async fn main() {
     let mut router = MainRouter::new();
 
-    router.public();
+    // router.public();
     router.assets();
 
     router.add_route(route!(index {}));
