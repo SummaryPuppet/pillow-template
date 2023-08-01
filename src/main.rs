@@ -9,6 +9,15 @@ pub fn index() -> Response {
 }
 
 
+#[controller(method = "GET", path = "/user")]
+pub fn users() -> Response {
+    let mut ctx = Context::new();
+
+    ctx.insert("name", "SummaryPuppet");
+    ctx.insert("id", &request.get_param("id"));
+
+    Response::view(Template::Tera("users", "tera.html", ctx))
+}
 
 #[tokio::main]
 async fn main() {
